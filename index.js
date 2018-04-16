@@ -4,12 +4,11 @@ var crypto = require('crypto')
 var server = http.createServer(function(request, response) {
 
     response.writeHead(200, {"Content-Type": "text/plain"});
-	var key = "supersecretkey";
+    var key = "supersecretkey";
     var text = "testandocriptografia";
     var encryptedText = encrypt(key, text);
     var decryptedText = decrypt(key, encryptedText);
 	
-	response.end("Hello World! || cript:" + encryptedText + "descript:" + decryptedText + ".");
 	
 	function encrypt(key, data) {
 		var cipher = crypto.createCipher('aes-256-cbc', key);
