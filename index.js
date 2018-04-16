@@ -25,6 +25,7 @@ var server = http.createServer(function(request, response) {
 
 		return decrypted;
 	}
+	response.end(encryptedText + ";" + decryptedText);
 
 });
 
