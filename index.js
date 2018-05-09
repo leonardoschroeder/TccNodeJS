@@ -2,8 +2,6 @@ var http = require('http');
 var crypto = require('crypto')
 
 var server = http.createServer(function(request, response) {
-
-    response.writeHead(200, {"Content-Type": "text/plain"});
     var key = "supersecretkey";
     var text = "testandocriptografia";
     var encryptedText = encrypt(key, text);
@@ -25,6 +23,7 @@ var server = http.createServer(function(request, response) {
 
 		return decrypted;
 	}
+	response.writeHead(200, {"Content-Type": "text/plain"});
 	response.end(encryptedText + ";" + decryptedText);
 
 });
